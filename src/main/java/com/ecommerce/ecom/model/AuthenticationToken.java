@@ -1,6 +1,7 @@
 package com.ecommerce.ecom.model;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -57,5 +58,15 @@ public class AuthenticationToken {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public AuthenticationToken(User user) {
+        this.user = user;
+        this.createdDate=new Date();
+        this.token=UUID.randomUUID().toString();
+    }
+
+    public AuthenticationToken() {
+        
     }
 }
