@@ -13,9 +13,14 @@ public class ExceptionControllerAdvice {
         return new ResponseEntity<>(customException.getMessage(),HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(AuthenticationFailException.class)
+    @ExceptionHandler(value = AuthenticationFailException.class)
     public final ResponseEntity<String> handleAuthenticationFailException(AuthenticationFailException AFException) {
         return new ResponseEntity<>(AFException.getMessage(),HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(value = ProductNotExistException.class)
+    public final ResponseEntity<String> handleProductNotExistException(ProductNotExistException productNotExistException) {
+        return new ResponseEntity<>(productNotExistException.getMessage(),HttpStatus.BAD_REQUEST);
     }
 
 }

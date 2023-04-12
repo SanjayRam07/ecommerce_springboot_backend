@@ -2,6 +2,8 @@ package com.ecommerce.ecom.dto;
 
 import javax.validation.constraints.NotNull;
 
+import com.ecommerce.ecom.model.Product;
+
 public class ProductDto {
     // not necessary for add product
     // needed for update
@@ -12,6 +14,18 @@ public class ProductDto {
     private @NotNull String description;
     
     private @NotNull Integer categoryId;
+
+    public ProductDto() {
+    }
+
+    public ProductDto(Product product) {
+        this.id = product.getId();
+        this.name = product.getName();
+        this.imageUrl = product.getImageUrl();
+        this.price = product.getPrice();
+        this.description = product.getDescription();
+        this.categoryId = product.getCategory().getId();
+    }
 
     public Integer getId() {
         return id;
